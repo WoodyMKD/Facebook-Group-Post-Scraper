@@ -2,7 +2,7 @@
   <img href="#" src="https://github.com/WoodyMKD/Facebook-Group-Post-Scraper/blob/master/logo.png?raw=true">
 </p>
 
-##  Упатство: :video_game: 
+## Упатство: 
 - *Инсталирајте geckodriver (https://github.com/mozilla/geckodriver/releases/tag/v0.26.0)*
 - *Инсталирајте го selenium за python:* ```pip install selenium```
 - *Пополнете ги информациите кои се бараат на почетокот од скриптата*:
