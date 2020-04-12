@@ -3,6 +3,7 @@
 </p>
 
 ## Упатство: 
+- *Инсталирајте Mozilla Firefox*
 - *Инсталирајте geckodriver (https://github.com/mozilla/geckodriver/releases/tag/v0.26.0)*
 - *Инсталирајте го selenium за python:* ```pip install selenium```
 - *Пополнете ги информациите кои се бараат на почетокот од скриптата*:
