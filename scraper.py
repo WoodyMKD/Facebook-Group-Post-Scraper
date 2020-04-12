@@ -7,11 +7,11 @@ import time
 import psycopg2
 
 # ================ ( CONFIG ) ================
-geckodriver_path = "C:/Users/Woody's PC/Desktop/facebook-scraper-selenium-master/geckodriver.exe"
-geckodriver_log_path = "C:/Users/Woody\'s PC/Desktop/facebook-scraper-selenium-master/geckodriver_logs.txt"
-credentials_path = "C:/Users/Woody\'s PC/Desktop/facebook-scraper-selenium-master/credentials.txt"
-fb_username = "najdiprevoz@outlook.com"
-fb_pass = "OtorinolaringologijA1"
+geckodriver_path = "XXX"
+geckodriver_log_path = "XXX"
+credentials_path = "XXX"
+fb_username = "XXX"
+fb_pass = "XXX"
 headlessMode = True
 # ============================================
 
