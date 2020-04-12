@@ -9,7 +9,6 @@ import psycopg2
 # ================ ( CONFIG ) ================
 geckodriver_path = "XXX"
 geckodriver_log_path = "XXX"
-credentials_path = "XXX"
 fb_username = "XXX"
 fb_pass = "XXX"
 headlessMode = True
