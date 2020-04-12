@@ -11,6 +11,10 @@ geckodriver_path = "XXX"
 geckodriver_log_path = "XXX"
 fb_username = "XXX"
 fb_pass = "XXX"
+postgre_db_username = "postgres"
+postgre_db_password = "tomato"
+postgre_db_name = "NajdiPrevoz"
+postgre_db_host = "localhost"
 headlessMode = True
 # ============================================
 
@@ -88,8 +92,8 @@ class CollectPosts(object):
     def connect_db(self):
         try:
             print('Connecting to the PostgreSQL database...')
-            self.conn = conn = psycopg2.connect("host=localhost dbname=NajdiPrevoz user=postgres password=tomato")
-            self.curr = conn.cursor()
+            self.conn = psycopg2.connect(host=postgre_db_host, database=postgre_db_name, user=postgre_db_username, password=postgre_db_password)
+            self.curr = self.conn.cursor()
             self.curr.execute("DELETE FROM sk_kp")
             self.conn.commit()
             print('Connection successful!')
