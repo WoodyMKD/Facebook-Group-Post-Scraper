@@ -7,22 +7,27 @@ import time
 import psycopg2
 
 # ================ ( CONFIG ) ================
-geckodriver_path = "XXX"
-geckodriver_log_path = "XXX"
-fb_username = "XXX"
+# MY PC
+geckodriver_path = "C:\\Users\\Woody\'s PC\\Desktop\\Projects\\NajdiPrevoz\\scraper\\geckodriver.exe"
+geckodriver_log_path = "C:\\Users\\Woody\'s PC\\Desktop\\Projects\\NajdiPrevoz\\scraper\\geckodriver_logs.txt"
+fb_username = "XXXX"
 fb_pass = "XXX"
 postgre_db_username = "postgres"
 postgre_db_password = "tomato"
 postgre_db_name = "NajdiPrevoz"
 postgre_db_host = "localhost"
 headlessMode = True
+
+# LINUX SRV
+# geckodriver_path = "/usr/bin/geckodriver"
+# geckodriver_log_path = "/root/scraper/geckodriver_logs.txt"
 # ============================================
 
 # ================ ( Argument Config ) ================
 # Example args: -g 125093080970970 -d 1
 
 parser = argparse.ArgumentParser(description='FB Scraper')
-parser.add_argument("-g", '--groups', nargs='+',
+parser.add_argument("-g", '--grupi', nargs='+',
                     dest="groups")
 
 parser.add_argument("-d", "--dlabocina", action="store",
@@ -92,7 +97,8 @@ class CollectPosts(object):
     def connect_db(self):
         try:
             print('Connecting to the PostgreSQL database...')
-            self.conn = psycopg2.connect(host=postgre_db_host, database=postgre_db_name, user=postgre_db_username, password=postgre_db_password)
+            self.conn = psycopg2.connect(host=postgre_db_host, database=postgre_db_name, user=postgre_db_username,
+                                         password=postgre_db_password)
             self.curr = self.conn.cursor()
             self.curr.execute("DELETE FROM sk_kp")
             self.conn.commit()
@@ -113,6 +119,7 @@ class CollectPosts(object):
             text = remove_new_line(text)
         else:
             return
+        if len(text) > 250: return
 
         sql = """INSERT INTO SK_KP(driver_name, post_date, driver_facebook_url, post_content) VALUES(%s, %s, %s, %s);"""
         self.curr.execute(sql, (profile_name, utime, profile_url, text))
@@ -135,6 +142,7 @@ class CollectPosts(object):
         except Exception as e:
             print("ERROR!")
             print(sys.exc_info()[0])
+            self.browser.close()
             self.browser.quit()
             exit()
 
